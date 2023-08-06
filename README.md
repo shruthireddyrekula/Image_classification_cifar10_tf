@@ -1,5 +1,5 @@
 Observations for CIFAR-10 data using different models (MLP, ResNet-50, and Vision Transformer)with  the model's performance on the dataset and insights from the results. Here are the  observations for each model:
-Multi-Layer Perceptron (MLP):
+##Multi-Layer Perceptron (MLP):##
 MLP model used here consists of an input layer, two hidden layers with dropout, and an output layer. The model is designed for a classification task with 10 output classes. The 'relu' activation function is used in the hidden layers to introduce non-linearity, and 'softmax' is used in the output layer for multi-class probability estimation.
 The  CIFAR-10 dataset is proprocessed with normalization where Pixel values[0,255] of images are scaled to the range [0, 1], flattened the images and One-Hot Encoding for converting labels to binary vectors
 The hyperparameters used during training are dropout rate of 0.2, batch-size of 128, adam optimizer with categorical crossentropy loss  and 100 epochs
@@ -10,7 +10,7 @@ Overall Analysis: The MLP model does not perform exceptionally well on the CIFAR
 
 
 
-RESNET50
+##RESNET50##
 The ResNet50 model with the settings(include_top = False, weights='imagenet',input_shape=(32,32,3))are used to extract features from images and then added a fully connected layer on top of the base model to perform classification, object detection or other image-related work. The pre-trained model weights from ImageNet will help the model capture meaningful patterns in the images and make it easier to train for new tasks
 The  CIFAR-10 dataset is proprocessed with normalization where Pixel values[0,255] of images are scaled to the range [0, 1], flattened the images and One-Hot Encoding for converting labels to binary vectors
 The hyperparameters used during training are learning rate of 0.001, batch-size of 64, adam optimizer with categorical crossentropy loss  and 100 epochs
@@ -20,7 +20,7 @@ The ResNet50 model shows significantly higher accuracy on the training set compa
 
 
 
-Vision Transformer (ViT):
+##Vision Transformer (ViT):##
 The ViT is deep learning architecture which is used for image classification problem where an image is transformed into smaller non overlapping patches using patch embedding.These patches are then linearly embedded into fixed-size vector representation.And then we add positional embedding to the patches to provide the location of each patch in image since transformer model does not inherently understand spacial relationships between patches. That patch embeddings along with positional embeddings are then passed to encoder which uses self attention mechanism to capture contextual dependencies and representation of the image. And then a classification head is added, typically a fully connected layer to predict the class label of the input image.
 The hyperparameters used during training are learning rate of 0.001,weight decay of 0.0001, batch-size of 256, AdamW optimizer with categorical crossentropy loss  and 100 epochs
 The Vision Transformer (ViT) model demonstrates exceptional accuracy on both the training and validation sets, indicating that it has learned the complex patterns in the data very well. It also achieves high accuracy on the test set, suggesting that it generalizes effectively to unseen data. The ViT model outperforms both the MLP and ResNet50 by a significant margin.
